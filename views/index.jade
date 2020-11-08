@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .col-sm-12.col-md-6.offset-md-3
+    .card
+      .card-body
+        form
+          .form-group
+            label(for='exampleInputEmail1') Email address
+            input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp')
+            small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
+          .form-group
+            label(for='exampleInputPassword1') Password
+            input#exampleInputPassword1.form-control(type='password')
+          button.btn.btn-primary(type='submit') Submit
+
