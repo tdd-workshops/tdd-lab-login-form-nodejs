@@ -7,7 +7,7 @@ tasks:
     command: npm start
 
   - name: Test
-    init: npm install && npm install -g eslint
+    init: npm install
     command: npm test
 
   - name: Console
