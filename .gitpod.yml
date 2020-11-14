@@ -2,14 +2,16 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: npm install
+  - name: Run App
+    init: npm install
     command: npm start
-
-  - command: gp await-port 3000 && sleep 3 && gp preview $(gp url 3000)/
 
   - name: Test
     init: npm install && npm install -g eslint
     command: npm test
+
+  - name: Console
+    command: gp await-port 3000 && sleep 3 && gp preview $(gp url 3000)/
 
 ports:
   - port: 3000
