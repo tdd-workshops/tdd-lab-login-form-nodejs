@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "mocha",
+    "test:watch": "nodemon --delay 2 --exec 'npm test'",
     "jsfmt": "eslint *.js routes/**/*.js test/**/*.js --fix",
     "jslint": "eslint *.js routes/**/*.js test/**/*.js"
   },
