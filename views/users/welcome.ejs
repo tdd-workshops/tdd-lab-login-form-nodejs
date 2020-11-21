@@ -7,6 +7,9 @@
       <p>
         <%= title %>
       </p>
+      <% if (typeof warningMsg != "undefined") { %>
+        <div class="alert alert-danger" role="alert"><%= warningMsg %></div>
+      <% } %>
       <p><a href="/users/logout">&raquo; Log out now</a></p>
     </div>
   </div>
