@@ -9,8 +9,8 @@ router.post('/', function (req, res, next) {
   // console.log('User credentials:', req.body.email)
 
   if (req.body.email === USEREMAIL && req.body.password === USERPASSWORD) {
-    res.cookie('username', USERNAME)
-    res.cookie('lastLogin', Date.now())
+    req.session.username = USERNAME
+    req.session.lastLogin = Date.now()
     res.redirect('/users/welcome')
   } else {
     res.redirect('/?msg=invalid_credentials')
@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
 router.get('/welcome', function (req, res, next) {
   // console.log('Cookies: ', req.cookies)
 
-  if (!req.cookies.username) {
+  if (!req.session.username) {
     return res.redirect('/?msg=no_session')
   }
 
@@ -28,7 +28,7 @@ router.get('/welcome', function (req, res, next) {
 })
 
 router.get('/logout', function (req, res) {
-  res.clearCookie('username')
+  res.session.username = undefined
   res.redirect('/?msg=logged_out')
 })
 
