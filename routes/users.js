@@ -3,12 +3,27 @@ const router = express.Router()
 
 const USERNAME = 'Demo User'
 const USEREMAIL = 'demo@example.com'
-const USERPASSWORD = 'demo1234'
+const USERPASSWORD = 'g00dpass99^%&'
 
 router.post('/', function (req, res, next) {
   // console.log('User credentials:', req.body.email)
 
-  if (req.body.email === USEREMAIL && req.body.password === USERPASSWORD) {
+  const { email, password } = req.body
+
+  if (password) {
+    if (password.length < 10) {
+      return res.redirect('/?errorMsg=' + encodeURIComponent('Password must be at least 10 characters'))
+    }
+    if (!password.match(/[0123456789]/)) {
+      return res.redirect('/?errorMsg=' + encodeURIComponent('Password must contain a number'))
+    }
+    // If you choose to include '-' then be sure to escape it as '\-'
+    if (!password.match(/[@#$%^&*()=+[\]{}/\\?.,><';":!]/)) {
+      return res.redirect('/?errorMsg=' + encodeURIComponent('Password must contain a symbol'))
+    }
+  }
+
+  if (email === USEREMAIL && password === USERPASSWORD) {
     req.session.username = USERNAME
     req.session.lastLogin = Date.now()
     res.redirect('/users/welcome')
