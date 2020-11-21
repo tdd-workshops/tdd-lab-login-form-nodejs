@@ -5,16 +5,6 @@ const USERNAME = 'Demo User'
 const USEREMAIL = 'demo@example.com'
 const USERPASSWORD = 'demo1234'
 
-router.get('/welcome', function (req, res, next) {
-  // console.log('Cookies: ', req.cookies)
-
-  if (!req.cookies.username) {
-    return res.redirect('/?msg=no_session')
-  }
-
-  res.render('users/welcome', { title: `Welcome back, ${req.cookies.username}!` })
-})
-
 router.post('/', function (req, res, next) {
   // console.log('User credentials:', req.body.email)
 
@@ -25,6 +15,16 @@ router.post('/', function (req, res, next) {
   } else {
     res.redirect('/?msg=invalid_credentials')
   }
+})
+
+router.get('/welcome', function (req, res, next) {
+  // console.log('Cookies: ', req.cookies)
+
+  if (!req.cookies.username) {
+    return res.redirect('/?msg=no_session')
+  }
+
+  res.render('users/welcome', { title: `Welcome back, ${req.cookies.username}!` })
 })
 
 router.get('/logout', function (req, res) {
