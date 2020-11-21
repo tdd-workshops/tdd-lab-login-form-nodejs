@@ -8,12 +8,7 @@ describe('POST /users', function () {
     agent
       .post('/users')
       .send('email=demo@example.com&password=demo1234')
-      .expect(302, /\/users\/welcome/, done)
-  })
-
-  it('display welcome page after login', function (done) {
-    agent
-      .get('/users/welcome')
+      .redirects(1)
       .expect(200, /Welcome back/, done)
   })
 })
