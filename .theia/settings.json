@@ -12,5 +12,8 @@
   // But we disable formatting for ejs (html) because it prevents us from indenting <% if %>s
   "[html]": {
     "editor.formatOnSave": false
-  }
+  },
+  // Make editor and terminal font sizes match
+  "editor.fontSize": 12,
+  "terminal.integrated.fontSize": 12
 }
