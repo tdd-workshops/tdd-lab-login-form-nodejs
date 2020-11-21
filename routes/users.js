@@ -11,7 +11,12 @@ router.post('/', function (req, res, next) {
   if (req.body.email === USEREMAIL && req.body.password === USERPASSWORD) {
     req.session.username = USERNAME
     req.session.lastLogin = Date.now()
-    res.redirect('/users/welcome')
+    // If the user's password is too short, pass a message when we redirect to the welcome page
+    if (req.body.password.length < 10) {
+      res.redirect('/users/welcome?msg=password_too_short')
+    } else {
+      res.redirect('/users/welcome')
+    }
   } else {
     res.redirect('/?msg=invalid_credentials')
   }
@@ -24,7 +29,15 @@ router.get('/welcome', function (req, res, next) {
     return res.redirect('/?msg=no_session')
   }
 
-  res.render('users/welcome', { title: `Welcome back, ${req.cookies.username}!` })
+  // If this page was passed a message, change it into text for the user
+  const warningMsg = req.query.msg === 'password_too_short'
+    ? 'Your password is too short, please change it to protect your account'
+    : undefined
+
+  res.render('users/welcome', {
+    title: `Welcome back, ${req.cookies.username}!`,
+    warningMsg: warningMsg
+  })
 })
 
 router.get('/logout', function (req, res) {
