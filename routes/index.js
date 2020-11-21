@@ -19,6 +19,10 @@ router.get('/', function (req, res, next) {
     }
   }
 
+  if (req.query.errorMsg) {
+    responseData.errorMsg = req.query.errorMsg
+  }
+
   res.render('index', responseData)
 })
 
