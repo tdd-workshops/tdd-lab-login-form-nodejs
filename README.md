@@ -59,7 +59,7 @@ Open this folder in your terminal app. And run these commands in the terminal. T
 ## Architecture
 
 - **[Express](https://expressjs.com/)** - Application framework in NodeJS.
-- **[Pug](https://pugjs.org)** - Templating engine for displaying the HTML pages.
+- **[EJS](https://ejs.co/)** - Templating engine for displaying the HTML pages.
 - **[Mocha](https://mochajs.org/)** - Testing framework.
 - **[Chai](https://www.chaijs.com/)** - Test Assertion library.
 - **[Supertest](https://github.com/visionmedia/supertest)** - Low-level testing library for HTTP services.
