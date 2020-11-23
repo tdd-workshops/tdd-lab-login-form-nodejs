@@ -6,9 +6,6 @@ tasks:
     init: npm install
     command: npm run start:watch
 
-  - name: MongoDB
-    command: mkdir -p /workspace/data && mongod --dbpath /workspace/data
-
   - name: Test
     init: npm install
     command: npm run test:watch
