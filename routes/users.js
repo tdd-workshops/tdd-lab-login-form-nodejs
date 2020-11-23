@@ -11,13 +11,13 @@ router.post('/', function (req, res, next) {
     req.session.lastLogin = Date.now()
     res.redirect('/users/welcome?successMsg=Successfully,+logged+in!')
   } else {
-    res.redirect('/?msg=invalid_credentials')
+    res.redirect('/?errorMsg=Invalid+user+login.')
   }
 })
 
 router.get('/welcome', function (req, res, next) {
   if (!req.session.username) {
-    return res.redirect('/?msg=no_session')
+    return res.redirect('/?errorMsg=Please+login+to+begin.')
   }
 
   const responseData = { title: `Welcome back, ${req.session.username}!` }
@@ -35,7 +35,7 @@ router.get('/welcome', function (req, res, next) {
 
 router.get('/logout', function (req, res) {
   req.session.destroy()
-  res.redirect('/?msg=logged_out')
+  res.redirect('/?successMsg=You+have+successfully+logged+out.')
 })
 
 module.exports = router

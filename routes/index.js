@@ -5,22 +5,12 @@ const router = express.Router()
 router.get('/', function (req, res, next) {
   const responseData = { title: 'Login Demo' }
 
-  if (req.query.msg) {
-    switch (req.query.msg) {
-      case 'no_session':
-        responseData.errorMsg = 'Please login to begin.'
-        break
-      case 'invalid_credentials':
-        responseData.errorMsg = 'Invalid user login.'
-        break
-      case 'logged_out':
-        responseData.successMsg = 'You have successfully logged out.'
-        break
-    }
-  }
-
   if (req.query.errorMsg) {
     responseData.errorMsg = req.query.errorMsg
+  }
+
+  if (req.query.successMsg) {
+    responseData.successMsg = req.query.successMsg
   }
 
   res.render('index', responseData)
