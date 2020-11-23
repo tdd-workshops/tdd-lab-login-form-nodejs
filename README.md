@@ -9,12 +9,13 @@ The product owner is very happy with the application, but would like some enhanc
 ### User Story
 
 > As a **User**, <br>
-**When** I login with password which is too short.<br>
+**When** I signup with password which is too short.<br>
 **Then** I should see an alert telling me my password is too short.
 
 Acceptance Criteria:
 
 - Error alert should be visible when the password is too short.
+- Password must be at least 12 characters in length.
 - This should be a server-side implementation.
 - There should be additional automated test coverage.
 
@@ -63,6 +64,7 @@ Open this folder in your terminal app. And run these commands in the terminal. T
 - **[Mocha](https://mochajs.org/)** - Testing framework.
 - **[Chai](https://www.chaijs.com/)** - Test Assertion library.
 - **[Supertest](https://github.com/visionmedia/supertest)** - Low-level testing library for HTTP services.
+- **[LokiJS](http://techfort.github.io/LokiJS)** - In memory database.
 - **[Bootstrap](https://getbootstrap.com/)** - CSS framework for building websites.
 - **[ESLint](https://eslint.org/)** - Find and fix problems in your JavaScript code.
     - This application uses the [StandardJS](https://standardjs.com/) coding style.
