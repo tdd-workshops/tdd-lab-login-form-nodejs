@@ -34,7 +34,9 @@ Acceptance Criteria:
 
 ## Running the application
 
-Open this folder in your terminal app. And run these commands in the terminal. This app was build with `v10.16.0`.
+If you want to open this repository in Gitpod, just add `gitpod.io/` before `github.com` in the browser location bar.
+
+Alternatively, open this folder in your terminal app. And run these commands in the terminal. This app was build with `v10.16.0`.
 
 1. Install dependencies:
 
@@ -47,9 +49,9 @@ Open this folder in your terminal app. And run these commands in the terminal. T
     ```
     npm start
     ```
-    
+
     You can open this url in your browser to view the app: <http://localhost:3000>
-    
+
 3. To run the test:
 
     ```
