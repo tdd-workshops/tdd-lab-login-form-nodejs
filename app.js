@@ -40,4 +40,12 @@ app.use(function (err, req, res, next) {
   res.render('error')
 })
 
+// Seed users
+const users = require('./db/users')
+users.insert({
+  username: 'demo1',
+  password: 'demo1234',
+  email: 'demo@example.com'
+})
+
 module.exports = app

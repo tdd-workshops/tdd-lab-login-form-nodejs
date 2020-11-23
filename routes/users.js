@@ -1,15 +1,13 @@
 const express = require('express')
 const router = express.Router()
 
-const USERNAME = 'Demo User'
-const USEREMAIL = 'demo@example.com'
-const USERPASSWORD = 'demo1234'
+const users = require('../db/users')
 
 router.post('/', function (req, res, next) {
-  // console.log('User credentials:', req.body.email)
+  const user = users.findOne({ email: req.body.email })
 
-  if (req.body.email === USEREMAIL && req.body.password === USERPASSWORD) {
-    req.session.username = USERNAME
+  if (user && user.password === req.body.password) {
+    req.session.username = user.username
     req.session.lastLogin = Date.now()
     res.redirect('/users/welcome')
   } else {
