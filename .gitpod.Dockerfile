@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-mongodb
 
 RUN bash -c ". .nvm/nvm.sh \
     && nvm install v10.16.0 \
