@@ -1,14 +1,9 @@
-<%- include('partials/header')-%>
+<%- include('partials/header', {title: locals.title})-%>
 
 <div class="col-sm-12 col-md-6 offset-md-3">
   <h2>Welcome to the Login Form Demo!</h2>
 
-  <% if (typeof successMsg != "undefined") { %>
-    <div class="alert alert-success" role="alert"><%= successMsg %></div>
-  <% } %>
-  <% if (typeof errorMsg != "undefined") { %>
-    <div class="alert alert-danger" role="alert"><%= errorMsg %></div>
-  <% } %>
+  <%- include('partials/alerts', {successMsg: locals.successMsg, errorMsg: locals.errorMsg})-%>
 
   <div class="card">
     <div class="card-body">

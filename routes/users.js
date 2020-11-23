@@ -18,17 +18,25 @@ router.post('/', function (req, res, next) {
 })
 
 router.get('/welcome', function (req, res, next) {
-  // console.log('Cookies: ', req.cookies)
-
   if (!req.session.username) {
     return res.redirect('/?msg=no_session')
   }
 
-  res.render('users/welcome', { title: `Welcome back, ${req.cookies.username}!` })
+  const responseData = { title: `Welcome back, ${req.session.username}!` }
+
+  if (req.query.errorMsg) {
+    responseData.errorMsg = req.query.errorMsg
+  }
+
+  if (req.query.successMsg) {
+    responseData.successMsg = req.query.successMsg
+  }
+
+  res.render('users/welcome', responseData)
 })
 
 router.get('/logout', function (req, res) {
-  res.session.username = undefined
+  req.session.destroy()
   res.redirect('/?msg=logged_out')
 })
 
