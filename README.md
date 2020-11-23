@@ -2,14 +2,25 @@
 
 This repository contains a simple web application written in NodeJS.
 
-## Workshop
+It has a signup form and login form where you can signup for a new user account and login to an existing user account.
 
-The product owner is very happy with the application, but would like some enhancements.
+The goal of this kata is to simulate a real world example of how we use Test Driven Development (TDD) on an existing code base. So given a ready made web application, how would you use a TDD to drive the introduction of a new feature - in this case, an enhancement to the signup form.
+
+Your facilitators will show you how to use a "Test First" strategy of breaking down this problem into its component parts, and how the existing test coverage helps prevent regression bugs.
+
+If time permits, your facilitators may also introduce you to the idea of refactoring of an existing code base.
+
+---
+
+## Background
+
+The product owner is very happy with the application, but would like some enhancements. People are able to sign up for new accounts, but the ACISO (Agency Chief Information Security Officer) said that some users are able to sign-up with too short a password. Security policy recommends enforcing a longer password length of at least 12 characters to make the application more secure.
 
 ### User Story
 
 > As a **User**, <br>
-**When** I signup with password which is too short.<br>
+**When** I signup with for a new user account.<br>
+**And** I key in a password which is too short.<br>
 **Then** I should see an alert telling me my password is too short.
 
 Acceptance Criteria:
@@ -75,16 +86,24 @@ Open this folder in your terminal app. And run these commands in the terminal. T
 
     This is the home page. The login form is also here.
 
-2. `POST /users`
+2. `GET /signup`
+
+    This is the registration form.
+
+3. `POST /signup`
+
+    Sign up for new user account.
+
+4. `POST /users`
 
     This is how you login to the app. You will need to login with `email` and `password`.
 
     The default email is `demo@example.com` and password is `demo1234`.
 
-3. `GET /users/welcome`
+5. `GET /users/welcome`
 
     Landing page after you have successfully logged in with the correct credentials.
 
-4. `GET /users/logout`
+6. `GET /users/logout`
 
     URL for logging out of the application.
