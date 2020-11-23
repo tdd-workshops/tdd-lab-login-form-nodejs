@@ -25,7 +25,7 @@ The product owner is very happy with the application, but would like some enhanc
 
 Acceptance Criteria:
 
-- Error alert should be visible when the password is too short.
+- An error alert should be shown if the password is too short.
 - Password must be at least 12 characters in length.
 - This should be a server-side implementation.
 - There should be additional automated test coverage.
