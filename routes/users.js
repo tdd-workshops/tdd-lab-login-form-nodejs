@@ -9,7 +9,7 @@ router.post('/', function (req, res, next) {
   if (user && user.password === req.body.password) {
     req.session.username = user.username
     req.session.lastLogin = Date.now()
-    res.redirect('/users/welcome')
+    res.redirect('/users/welcome?successMsg=Successfully,+logged+in!')
   } else {
     res.redirect('/?msg=invalid_credentials')
   }

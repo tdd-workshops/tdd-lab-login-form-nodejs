@@ -7,6 +7,7 @@ const session = require('express-session')
 
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
+const signupRouter = require('./routes/signup')
 
 const app = express()
 
@@ -23,6 +24,7 @@ app.use(session({ secret: 'o8W0Dqt7pkFYbqIO', cookie: { maxAge: 60000 }, resave:
 
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
+app.use('/signup', signupRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
