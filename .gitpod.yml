@@ -4,11 +4,11 @@ image:
 tasks:
   - name: Run App
     init: npm install
-    command: npm start
+    command: npm run start:watch
 
   - name: Test
     init: npm install
-    command: npm test
+    command: npm run test:watch
 
   - name: Console
     command: gp await-port 3000 && sleep 3 && gp preview $(gp url 3000)/

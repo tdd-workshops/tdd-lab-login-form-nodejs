@@ -1,0 +1,19 @@
+{
+  "editor.autoSave": "on",
+  // Old way: does not work in gitpod
+  //"eslint.autoFixOnSave": true,
+  // New way: does not work in gitpod
+  //"editor.codeActionsOnSave": {
+  //  "source.fixAll.eslint": true
+  //},
+  // Works in gitpod
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
+  // But we disable formatting for ejs (html) because it prevents us from indenting <% if %>s
+  "[html]": {
+    "editor.formatOnSave": false
+  },
+  // Make editor and terminal font sizes match
+  "editor.fontSize": 12,
+  "terminal.integrated.fontSize": 12
+}
