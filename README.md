@@ -34,7 +34,7 @@ Acceptance Criteria:
 
 ## Running the application
 
-If you want to open this repository in Gitpod, just add `gitpod.io/` before `github.com` in the browser location bar.
+If you want to open this repository in Gitpod, just add `gitpod.io/#` before `github.com` in the browser location bar.
 
 Alternatively, open this folder in your terminal app. And run these commands in the terminal. This app was build with `v10.16.0`.
 
