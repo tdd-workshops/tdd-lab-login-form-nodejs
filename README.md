@@ -30,6 +30,13 @@ Acceptance Criteria:
 - This should be a server-side implementation.
 - There should be additional automated test coverage.
 
+If you complete that requirement, here are some more. Each requirement should have its own test.
+
+- Password must contain a number
+- Password must contain a symbol character
+
+(Note that arbitrary password constraints like these are not really recommended for a real-world application. It is preferable to check password strength with a smarter tool such as [zxcvbn](https://github.com/dropbox/zxcvbn). These requirements are just provided for you to practice the red-green-refactor cycle.)
+
 ---
 
 ## Running the application
